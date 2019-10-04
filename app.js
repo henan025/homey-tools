@@ -23,6 +23,7 @@ class HomeyToolsApp extends Homey.App {
       })
       this.api.devices.on('device.update', async (device) => {
         this.log(`Device Updated: [${device.name}]`)
+        this.devices[device.id] = device
       })
       this.api.devices.on('device.delete', async (device) => {
         this.log(`Device DELETED: [${device.id}]`)

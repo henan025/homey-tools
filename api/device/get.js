@@ -8,6 +8,8 @@ module.exports = {
   path: '/devices',
   fn: async (args, callback) => {
     let res = await Homey.app.getDevices()
-    callback(null, res)
+    if (callback) {
+      callback(null, res)
+    }
   }
 }

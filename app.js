@@ -1,12 +1,10 @@
 'use strict'
-
 const Homey = require('homey')
 const { HomeyAPI  } = require('athom-api')
 
 class HomeyToolsApp extends Homey.App {
 
   onInit() {
-    this.log(`[OnInit]: Initializing HomeyToolsApp`)
     this.devices = {}
     this.api = null
   }

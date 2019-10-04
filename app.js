@@ -44,6 +44,11 @@ class HomeyToolsApp extends Homey.App {
     }
     return this.devices[id]
   }
+
+  async registerDeviceCapabilityChangedListener (deviceId, cap, listener) {
+    const device = await this.getDevice(id)
+    device.registerCapabilityListener(cap, listener)
+  }
 	
 }
 

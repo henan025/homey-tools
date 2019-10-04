@@ -1,8 +1,6 @@
 const Homey = require('homey')
 
-const utils = require('./utils')
-
-module.exports = class Device extends Homey.Device {
+module.exports = class ToolsDevice extends Homey.Device {
   onInit () {}
 
   debug (args) {
@@ -19,10 +17,6 @@ module.exports = class Device extends Homey.Device {
     console.log(`[${this.getClass()}]: Has not implemented reload`)
   }
 
-  onSettings (oldSettings, newSettings, changedKeys, callback) {
-    callback(null, true)
-  }
-
   async getDevice(deviceId) {
     try {
       return await Homey.app.getDevice(deviceId)
@@ -32,21 +26,6 @@ module.exports = class Device extends Homey.Device {
       }
       this.error(e)
       return false
-    }
-  }
-
-  async _setCapability(cap, value, opts) {
-    // console.log(`${cap} called: ${value}`, opts)
-    const { devices } = this.getSettings()
-    for (let idx in devices) {
-      let device = await this.getDevice(devices[idx])
-      try {
-        let result = await device.setCapabilityValue(cap, value)
-        // console.log(result)
-        await utils.sleep(0.5)
-      } catch (e) {
-        throw new Error(`Switching the device [${this.name}] failed!`, e)
-      }
     }
   }
 }

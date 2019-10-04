@@ -5,7 +5,7 @@ const utils = require('./utils')
 /**
  * Homey Tools Driver
  */
-module.exports = class Driver extends Homey.Driver {
+module.exports = class ToolsDriver extends Homey.Driver {
   onInit () {
     this.version = Homey.app.manifest.version
   }

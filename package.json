@@ -4,5 +4,8 @@
   "description": "",
   "main": "index.js",
   "author": "Henrik Andersson",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "athom-api": "^2.1.215"
+  }
 }
